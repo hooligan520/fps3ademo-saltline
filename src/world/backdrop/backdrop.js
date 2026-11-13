@@ -128,8 +128,8 @@ function Eb(i, { only: e = null, showcase: t = !1 } = {}) {
       spreader: l ? l.spreader : null,
       boatBase: r,
       extractionPoint: new Vector3(30, 0, 20),
-      shipName: "KITTIWAKE",
-      craneId: "SALTLINE 04",
+      shipName: "几猫北航",
+      craneId: "几猫04号",
       stats: {
         tris: Math.round(v),
         drawCalls: g,

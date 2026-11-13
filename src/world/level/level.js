@@ -143,21 +143,21 @@ async function createLevel(context) {
     v = [
       {
         id: "relay_a",
-        label: "Relay A \u2014 Yard",
+        label: "甲号中继 \u2014 堆场",
         zone: "yard",
         pos: mt(1.5, 0, 7.5),
         object: o,
       },
       {
         id: "relay_b",
-        label: "Relay B \u2014 Shed",
+        label: "乙号中继 \u2014 仓库",
         zone: "shed",
         pos: mt(n.relayPos.x, no.FLOOR, n.relayPos.z),
         object: r,
       },
       {
         id: "relay_c",
-        label: "Relay C \u2014 Quay",
+        label: "丙号中继 \u2014 码头",
         zone: "quay",
         pos: mt(s.relayPos.x, 0, s.relayPos.z),
         object: a,

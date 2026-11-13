@@ -303,7 +303,7 @@ function oR(i, e) {
         0.4,
       ),
       t.label(
-        "SALTLINE",
+        "几猫",
         {
           color: "black",
           font: "sans",
@@ -795,7 +795,7 @@ function oR(i, e) {
       r: [-tt, 0, 0],
     }),
     t.cdecal(
-      i.mats.label("LPG", {
+      i.mats.label("液化气", {
         color: "red",
         font: "stencil",
         distress: 0.3,
@@ -940,7 +940,7 @@ function oR(i, e) {
       1,
     ),
     t.label(
-      "MAX 2500 kg",
+      "最大 2500 千克",
       {
         color: "yellow",
         font: "stencil",
@@ -1282,7 +1282,7 @@ function rR(i, e) {
       }
     }),
       t.label(
-        e.label || "GEN-0" + (1 + (t.seed % 2)),
+        e.label || "发电机 0" + (1 + (t.seed % 2)),
         {
           color: "black",
           font: "stencil",
@@ -1481,7 +1481,7 @@ function rR(i, e) {
     r: g,
   }),
     t.label(
-      "DANGER",
+      "危险",
       {
         color: "red",
         font: "stencil",
@@ -1611,7 +1611,7 @@ function rR(i, e) {
       p: [-0.52, 0.215, 0.4712],
     }),
     t.label(
-      "DIESEL",
+      "柴油",
       {
         color: "white",
         font: "stencil",
@@ -1803,7 +1803,7 @@ function aR(i, e) {
   );
   let b = (M) => u + ((M - l) * (h - u)) / (c - l) + 0.003;
   (t.label(
-    e.label || "B4 WASTE " + (11 + (t.seed % 2)),
+    e.label || "四号泊位废物 " + (11 + (t.seed % 2)),
     {
       color: "white",
       font: "stencil",
@@ -2169,7 +2169,7 @@ function lR(i, e) {
         t.pop());
     }
   (t.label(
-    e.label || "MAINT " + (1 + (t.seed % 2)),
+    e.label || "检修 " + (1 + (t.seed % 2)),
     {
       color: "white",
       font: "stencil",

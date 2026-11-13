@@ -107,12 +107,12 @@ function createInput(context) {
       },
       describeMode() {
         return f.mode === "touch"
-          ? "Touch controls active"
+          ? "触屏操作已启用"
           : f.mode === "drag"
-            ? "Mouse capture unavailable \u2014 move the mouse to look, rest it at a screen edge to keep turning \xB7 click fires \xB7 arrows or IJKL also turn"
+            ? "鼠标捕获不可用 \u2014 移动鼠标调整视角，停在屏幕边缘可持续转向 \xB7 点击开火 \xB7 方向键或 IJKL 也能转向"
             : f.locked
-              ? "Mouse captured \u2014 Esc releases it"
-              : "Click the view to capture the mouse";
+              ? "鼠标已捕获 \u2014 按 Esc 释放"
+              : "点击游戏画面以捕获鼠标";
       },
     };
   function p(P) {

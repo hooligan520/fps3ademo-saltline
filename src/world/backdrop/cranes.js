@@ -819,7 +819,7 @@ function z1(i, e, t = {}) {
         tint: En,
       },
     ));
-  let me = i.mats.label("SALTLINE 04", {
+  let me = i.mats.label("几猫04号", {
       color: "white",
       font: "stencil",
       distress: 0.35,

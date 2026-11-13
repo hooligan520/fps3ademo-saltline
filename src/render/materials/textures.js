@@ -25,12 +25,13 @@ uniform sampler2D tA; uniform float uSq; in vec2 vUv; out vec4 o;
 void main(){ vec4 t = texture(tA, vUv); o = uSq > 0.5 ? vec4(t.rgb * t.rgb, t.a) : t; }`;
 
 var o3 =
-  '"Big Shoulders Display", "Barlow Condensed", "Arial Narrow", Impact, "Helvetica Neue", Arial, sans-serif';
+  '"Big Shoulders Display", "Barlow Condensed", "Arial Narrow", Impact, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif';
 
 var r3 =
-  '"Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif';
+  '"Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif';
 
-var oA = '"IBM Plex Mono", "DejaVu Sans Mono", Menlo, Consolas, monospace';
+var oA =
+  '"IBM Plex Mono", "DejaVu Sans Mono", Menlo, Consolas, "PingFang SC", "Hiragino Sans GB", monospace';
 
 var Ut = {
   white: [226, 223, 213],
@@ -440,8 +441,8 @@ function l3(i, e = 4) {
                   b.closePath(),
                   b.fill());
               },
-              "NORDKAP LINE",
-              "ARCTIC  \xB7  ATLANTIC  \xB7  FEEDER",
+              "几猫北航",
+              "北极  \xB7  大西洋  \xB7  支线运输",
             ),
               Ks(v, g, x, 0.35, y));
           },
@@ -490,8 +491,8 @@ function l3(i, e = 4) {
                     b.fill());
                 }
               },
-              "TERN OCEANIC",
-              "CONTAINER SERVICES",
+              "几猫远洋",
+              "集装箱运输",
               Ut.orange,
             ),
               Ks(v, g, x, 0.35, y));
@@ -535,8 +536,8 @@ function l3(i, e = 4) {
                 (b.fillRect(-m * 1.05, m * 0.42, m * 2.1, m * 0.13),
                   b.fillRect(-m * 0.8, m * 0.68, m * 1.6, m * 0.1));
               },
-              "AUREL PACIFIC",
-              "DEEP SEA  \xB7  REEFER  \xB7  BULK",
+              "几猫太平洋",
+              "远洋  \xB7  冷链  \xB7  散货",
             ),
               Ks(v, g, x, 0.35, y));
           },
@@ -564,8 +565,8 @@ function l3(i, e = 4) {
                   b.fillRect(-m * 0.32, -m, m * 0.64, m * 0.5),
                   b.fillRect(-m * 0.32, m * 0.5, m * 0.64, m * 0.5));
               },
-              "HOLMGARD",
-              "INTERMODAL  FREIGHT",
+              "几猫联运",
+              "多式联运",
               Ut.yellow,
             ),
               Ks(v, g, x, 0.35, y));
@@ -587,7 +588,7 @@ function l3(i, e = 4) {
               (v.globalCompositeOperation = "destination-out"));
             for (let b of [g * 0.25, g * 0.75]) v.fillRect(b - 6, 0, 12, x);
             ((v.globalCompositeOperation = "source-over"),
-              qa(v, "BERTH 4", g / 2, x * 0.76, x * 0.66, An(Ut.yellow), {
+              qa(v, "四号泊位", g / 2, x * 0.76, x * 0.66, An(Ut.yellow), {
                 align: "center",
                 weight: 900,
                 maxW: g - 80,
@@ -1070,7 +1071,7 @@ function l3(i, e = 4) {
                 v.arc(_ - 1.2, M - 1.2, 2, 0, 7),
                 v.fill());
             let m = "rgba(28,30,32,0.92)";
-            (qa(v, "SAFETY APPROVAL PLATE", g / 2, 46, 19, m, {
+            (qa(v, "安全检验铭牌", g / 2, 46, 19, m, {
               font: "sans",
               weight: 600,
               align: "center",
@@ -1078,13 +1079,13 @@ function l3(i, e = 4) {
               maxW: g - 60,
             }),
               [
-                "APPROVAL REF   SL/PA-4207/19",
-                "DATE MANUFACTURED   03/2019",
-                "IDENT NO   SLTU 402719 6",
-                "MAX GROSS   30 480 KG",
-                "STACKING LOAD   192 000 KG",
-                "RACKING TEST   150 KN",
-                "NEXT EXAM   09/2027",
+                "检验编号   SL/PA-4207/19",
+                "制造日期   2019 年 03 月",
+                "设备编号   SLTU 402719 6",
+                "最大总重   30 480 千克",
+                "堆码载荷   192 000 千克",
+                "横向试验   150 千牛",
+                "下次检验   2027 年 09 月",
               ].forEach((_, M) => {
                 (qa(v, _, 30, 70 + M * 16.5, 11, m, {
                   font: "mono",

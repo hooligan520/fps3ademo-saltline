@@ -860,16 +860,19 @@ function TC() {
         (e.textAlign = d),
         e.fillText(h, d === "left" ? v + 2 : v + x / 2, g + y / 2 + 1, x - 4));
     },
-    n = '"Barlow Condensed", "Arial Narrow", Arial, sans-serif',
-    s = '"IBM Plex Mono", "Courier New", monospace',
-    o = '"Big Shoulders Display", "Barlow Condensed", Impact, sans-serif',
+    n =
+      '"Barlow Condensed", "Arial Narrow", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif',
+    s =
+      '"IBM Plex Mono", "Courier New", "PingFang SC", monospace',
+    o =
+      '"Big Shoulders Display", "Barlow Condensed", Impact, "PingFang SC", "Hiragino Sans GB", sans-serif',
     r = "rgba(196,198,194,0.92)";
-  (t("model", "PAC-9", `700 78px ${o}`, r),
-    t("maker", "LONGSHORE ARMS WORKS  \xB7  SALTLINE", `600 30px ${n}`, r),
-    t("cal", "CAL 5.8\xD740   SN PA-004217", `500 27px ${s}`, r),
+  (t("model", "几猫九式", `700 78px ${o}`, r),
+    t("maker", "几猫兵工厂  \xB7  港区装备", `600 30px ${n}`, r),
+    t("cal", "口径 5.8\xD740   SN PA-004217", `500 27px ${s}`, r),
     t(
       "prop",
-      "PROPERTY OF PORT AUTHORITY \u2014 BERTH 4 ARMOURY",
+      "港务局装备 \xB7 四号泊位武器库",
       `600 28px ${n}`,
       r,
     ),
@@ -879,17 +882,17 @@ function TC() {
     t("rack", "B4-07", `800 104px ${o}`, "rgba(214,206,170,0.9)", "center"));
   for (let u of [2, 4, 6, 8, 10, 12])
     t("r" + u, "T" + u, `600 30px ${s}`, "rgba(190,192,188,0.85)", "center");
-  (t("optic", "HX-2 REFLEX", `700 44px ${n}`, r, "center"),
-    t("light", "900 LM  IPX8", `600 40px ${n}`, r, "center"));
+  (t("optic", "反射瞄具", `700 44px ${n}`, r, "center"),
+    t("light", "900 流明  IPX8", `600 40px ${n}`, r, "center"));
   {
     let [u, h] = hm.warn;
     ((e.fillStyle = r),
       (e.textAlign = "left"),
       (e.font = `600 24px ${n}`),
       [
-        "WARNING \u2014 CLEAR CHAMBER BEFORE",
-        "STOWAGE. AUTHORISED BREACH",
-        "PERSONNEL ONLY. PA-REG 44/7",
+        "警告：存放前必须清空弹膛",
+        "仅限授权突击队员使用",
+        "港务安全规程 44/7",
       ].forEach((f, p) => e.fillText(f, u + 2, h + 20 + p * 34)));
   }
   {

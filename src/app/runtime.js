@@ -80,7 +80,7 @@ async function startGame() {
     g > 150 && console.log(`[boot] ${h} ${g.toFixed(0)}ms`);
   }
   if (
-    (await setBootProgress("Waking the renderer", 0.04),
+    (await setBootProgress("正在启动渲染器", 0.04),
     await initializeSystem(
       "render",
       "render",
@@ -91,7 +91,7 @@ async function startGame() {
     (context.scene = context.render.scene),
     (context.camera = context.render.camera),
     (context.viewCamera = context.render.viewCamera),
-    await setBootProgress("Mixing paint, rust and rain", 0.12),
+    await setBootProgress("正在生成涂装、锈迹与雨水", 0.12),
     await initializeSystem("mats", "materials", () => createMaterials(context)),
     (context.physics = createPhysics(context)),
     (context.props = createProps(context)),
@@ -166,13 +166,13 @@ async function startGame() {
         }));
   } else {
     if (
-      (await setBootProgress("Stacking containers", 0.34),
+      (await setBootProgress("正在布置集装箱", 0.34),
       await initializeSystem("level", "level", () => createLevel(context), !0),
-      await setBootProgress("Raising the cranes", 0.5),
+      await setBootProgress("正在架设起重机", 0.5),
       await initializeSystem("backdrop", "backdrop", () =>
         createBackdrop(context),
       ),
-      await setBootProgress("Flooding the apron", 0.58),
+      await setBootProgress("正在生成港区地面", 0.58),
       await initializeSystem("ground", "ground", () => createGround(context)),
       context.ground.stub)
     ) {
@@ -186,23 +186,23 @@ async function startGame() {
       context.scene.add(h);
     }
     (context.physics.build(),
-      await setBootProgress("Loading tracers and smoke", 0.66),
+      await setBootProgress("正在加载弹道与烟雾", 0.66),
       await initializeSystem("fx", "fx", () => createEffects(context)),
       await initializeSystem("audio", "audio", () =>
         params.noaudio ? FALLBACKS.audio() : createAudio(context),
       ),
       (context.player = createPlayer(context)),
       (context.combat = createCombat(context)),
-      await setBootProgress("Checking the rifle", 0.74),
+      await setBootProgress("正在检查几猫制式步枪", 0.74),
       await initializeSystem("weapon", "weapon", () => createWeapon(context)),
-      await setBootProgress("Waking the Harbormaster", 0.82),
+      await setBootProgress("正在启动港区主控", 0.82),
       await initializeSystem("enemies", "enemies", () =>
         createEnemies(context),
       ),
       await initializeSystem("hud", "hud", () => createHUD(context)),
       (context.game = createGameFlow(context)));
   }
-  await setBootProgress("Waiting for first light", 0.92);
+  await setBootProgress("正在准备首帧画面", 0.92);
   try {
     await context.render.onLevelReady();
   } catch (h) {
@@ -235,7 +235,7 @@ async function startGame() {
     context.weapon.setVisible &&
     context.weapon.setVisible(!1),
     benchmark && enableBenchmark(context),
-    await setBootProgress("Ready", 1),
+    await setBootProgress("准备就绪", 1),
     bootElement.classList.add("done"),
     setTimeout(() => {
       bootElement.hidden = !0;

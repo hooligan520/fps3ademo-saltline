@@ -15,7 +15,7 @@ function showFatalError(i) {
     ((e = document.createElement("div")),
     (e.id = "fatal"),
     document.getElementById("app").appendChild(e)),
-    (e.textContent = "Saltline could not start: " + i));
+    (e.textContent = "几猫启动失败：" + i));
 }
 
 window.addEventListener("error", (i) => {

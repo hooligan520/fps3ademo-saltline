@@ -509,7 +509,7 @@ function cb(i) {
             radial: 5,
           },
         );
-    i.label("BOAT STN 4", 0.2, u - 1.3, 0.006, h - 1.4, "y+", {
+    i.label("四号登船点", 0.2, u - 1.3, 0.006, h - 1.4, "y+", {
       color: "yellow",
       font: "stencil",
       distress: 0.4,
@@ -1308,11 +1308,11 @@ function hR(i) {
     e("ibc_tote", -26.6, 21.2, 0, {
       seed: 80,
     }),
-    Sf(i, -22.9, -3.62, "LANE 1", "x-"),
-    Sf(i, -22.95, 3.62, "LANE 2", "x-"),
-    Sf(i, -25, 14, "LANE 3", "x-"),
-    Sf(i, 16.9, 9.5, "LANE 2", "x+"),
-    i.label("BERTH 4 WORKSHOP", 0.55, 4.2, 4.3, no.Z1 + 0.064, "z+", {
+    Sf(i, -22.9, -3.62, "1 号通道", "x-"),
+    Sf(i, -22.95, 3.62, "2 号通道", "x-"),
+    Sf(i, -25, 14, "3 号通道", "x-"),
+    Sf(i, 16.9, 9.5, "2 号通道", "x+"),
+    i.label("四号泊位维修车间", 0.55, 4.2, 4.3, no.Z1 + 0.064, "z+", {
       color: "white",
       font: "stencil",
       distress: 0.45,

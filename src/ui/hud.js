@@ -8,14 +8,20 @@ var nx = -90;
 var WC = 450;
 
 var GC = {
-  0: "N",
-  45: "NE",
-  90: "E",
-  135: "SE",
-  180: "S",
-  225: "SW",
-  270: "W",
-  315: "NW",
+  0: "北",
+  45: "东北",
+  90: "东",
+  135: "东南",
+  180: "南",
+  225: "西南",
+  270: "西",
+  315: "西北",
+};
+
+var ENEMY_LABELS = {
+  gull: "机械飞鸥",
+  hound: "机械猎犬",
+  machine: "机械守卫",
 };
 
 var ix = 2 * Math.PI * 19;
@@ -52,7 +58,7 @@ function createHUD(context) {
   let c = createElement(
       "div",
       "h-obj",
-      '<div class="h-k">Objective</div><div class="h-obj-t"></div><div class="h-relays"><span>Relays</span><i></i><i></i><i></i><b>0/3</b></div>',
+      '<div class="h-k">任务目标</div><div class="h-obj-t"></div><div class="h-relays"><span>中继</span><i></i><i></i><i></i><b>0/3</b></div>',
     ),
     u = c.querySelector(".h-obj-t"),
     h = c.querySelector(".h-relays"),
@@ -96,7 +102,7 @@ function createHUD(context) {
     S = createElement(
       "div",
       "h-health",
-      '<div class="h-k">Vitals</div><div class="h-hp-row"><b class="h-hp-n">100</b><div class="h-hp-bar">' +
+      '<div class="h-k">生命状态</div><div class="h-hp-row"><b class="h-hp-n">100</b><div class="h-hp-bar">' +
         "<i></i>".repeat(10) +
         "</div></div>",
     ),
@@ -117,7 +123,7 @@ function createHUD(context) {
   let j = createElement(
     "div",
     "comms",
-    '<span class="comms-who">Control</span><span class="comms-t"></span>',
+    '<span class="comms-who">指挥中心</span><span class="comms-t"></span>',
   );
   (j.setAttribute("role", "status"), j.setAttribute("aria-live", "polite"));
   let N = j.querySelector(".comms-t");
@@ -187,13 +193,12 @@ function createHUD(context) {
           fe &&
           le === context.time.frame &&
           !fe.weak &&
-          ((fe.weak = !0), (fe.el.innerHTML += "<em>Weak point</em>")));
+          ((fe.weak = !0), (fe.el.innerHTML += "<em>弱点命中</em>")));
     }),
     context.events.on("enemy:killed", (k) => {
-      let ce = String(
-        (k && (k.type || (k.enemy && k.enemy.type))) || "machine",
-      ).toUpperCase();
-      ((fe = I.feed(`<b>${ce}</b> destroyed`)), (le = context.time.frame));
+      let ce = String((k && (k.type || (k.enemy && k.enemy.type))) || "machine");
+      ((fe = I.feed(`<b>${ENEMY_LABELS[ce] || ce}</b> 已摧毁`)),
+        (le = context.time.frame));
     }),
     context.events.on("player:hit", (k) => {
       if (!k || !k.fromPos) return;
@@ -281,7 +286,7 @@ function createHUD(context) {
       )
         return;
       let _e = context.input.touch
-        ? "USE"
+        ? "交互"
         : context.input.gamepad && !context.input.locked
           ? "Y"
           : "E";
@@ -289,7 +294,7 @@ function createHUD(context) {
         ((X.promptKey = _e),
         (_.textContent = _e),
         _.classList.toggle("wide", _e.length > 1));
-      let Te = `Hold ${_e} \u2014 ${k}`;
+      let Te = `按住 ${_e} \xB7 ${k}`;
       Te !== X.promptText && ((X.promptText = Te), (M.textContent = Te));
       let Pe = Math.round(ce * 200) / 200;
       Pe !== X.promptT &&
@@ -487,15 +492,15 @@ function createHUD(context) {
     let Ie = dt <= Math.ceil(Ne * 0.27),
       Be =
         ve.state === "reloading"
-          ? "Reloading"
+          ? "换弹中"
           : dt === 0
             ? xe > 0
               ? context.input.touch
-                ? "Reload"
-                : "R \u2014 Reload"
-              : "Empty"
+                ? "换弹"
+                : "R \xB7 换弹"
+              : "弹药耗尽"
             : Ie
-              ? "Low ammo"
+              ? "弹药不足"
               : "";
     (Be !== X.cue &&
       ((X.cue = Be),

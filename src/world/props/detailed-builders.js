@@ -172,7 +172,7 @@ function E1(
   n,
   {
     detail: s = !0,
-    label: o = "FRAGILE",
+    label: o = "易碎物品",
     code: r = "B4-117",
     skids: a = !0,
   } = {},
@@ -439,7 +439,7 @@ function GA(i, e) {
     E1(t, 1.1, 1, 0.9, {
       label:
         e.label === void 0
-          ? ["FRAGILE", "THIS SIDE UP", "KEEP DRY", "MACHINE PARTS"][t.seed % 4]
+          ? ["易碎物品", "此面向上", "保持干燥", "机械零件"][t.seed % 4]
           : e.label,
       code: e.code || "B4-" + [117, 204, 318][t.seed % 3],
     }),
@@ -451,7 +451,7 @@ function qA(i, e) {
   let t = new Kn(i, "crate_stack", e.seed || 0),
     n = t.rng;
   E1(t, 1.2, 0.95, 1, {
-    label: "HEAVY",
+    label: "重物",
     code: "SLT 04" + (t.seed % 2),
   });
   let s = {
@@ -468,7 +468,7 @@ function qA(i, e) {
     E1(t, s.L, 0.6, s.W, {
       detail: !1,
       skids: !1,
-      label: "FRAGILE",
+      label: "易碎物品",
       code: "B4-204",
     }),
     t.pop());
@@ -700,7 +700,7 @@ function XA(i, e) {
       0.85,
     ),
     t.label(
-      "IBC 1000 L",
+      "储液箱 1000 升",
       {
         color: "black",
         font: "sans",
@@ -866,7 +866,7 @@ function YA(i, e) {
       );
     }
     (t.label(
-      y > 0 ? "NYY-J 4x95 mm2  500 m" : "SALTLINE TERMINAL",
+      y > 0 ? "NYY-J 4x95 mm2  500 m" : "几猫港区",
       {
         color: "white",
         font: "stencil",
@@ -1405,7 +1405,7 @@ function JA(i, e) {
       ),
       t.cdecal(
         i.mats.label(
-          ["ACETYLENE", "OXYGEN", "ARGON", "PROPANE"][(t.seed + u) % 4],
+          ["乙炔", "氧气", "氩气", "丙烷"][(t.seed + u) % 4],
           {
             color: "white",
             font: "stencil",

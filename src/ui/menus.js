@@ -13,6 +13,14 @@ var DEFAULT_SETTINGS = {
 
 var QUALITY_NAMES = ["low", "medium", "high", "ultra"];
 
+var QUALITY_LABELS = {
+  low: "低",
+  medium: "中",
+  high: "高",
+  ultra: "极高",
+  default: "默认",
+};
+
 function loadSettings() {
   let i = {
     ...DEFAULT_SETTINGS,
@@ -40,29 +48,29 @@ function saveSettings(i) {
 
 var KEYBOARD_CONTROLS_HTML = `
   <dl class="keys">
-    <div><dt>Move</dt><dd><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></dd></div>
-    <div><dt>Look</dt><dd>Mouse</dd></div>
-    <div><dt>Fire</dt><dd>Left button</dd></div>
-    <div><dt>Aim</dt><dd>Right button</dd></div>
-    <div><dt>Reload</dt><dd><kbd>R</kbd></dd></div>
-    <div><dt>Cut relay</dt><dd>Hold <kbd>E</kbd></dd></div>
-    <div><dt>Jump</dt><dd><kbd>Space</kbd></dd></div>
-    <div><dt>Sprint</dt><dd><kbd>Shift</kbd></dd></div>
-    <div><dt>Crouch</dt><dd><kbd>C</kbd> or <kbd>Ctrl</kbd></dd></div>
-    <div><dt>Melee</dt><dd><kbd>F</kbd></dd></div>
-    <div><dt>Pause</dt><dd><kbd>Esc</kbd> or <kbd>P</kbd></dd></div>
+    <div><dt>移动</dt><dd><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></dd></div>
+    <div><dt>视角</dt><dd>鼠标</dd></div>
+    <div><dt>开火</dt><dd>鼠标左键</dd></div>
+    <div><dt>瞄准</dt><dd>鼠标右键</dd></div>
+    <div><dt>换弹</dt><dd><kbd>R</kbd></dd></div>
+    <div><dt>切断中继</dt><dd>按住 <kbd>E</kbd></dd></div>
+    <div><dt>跳跃</dt><dd><kbd>Space</kbd></dd></div>
+    <div><dt>冲刺</dt><dd><kbd>Shift</kbd></dd></div>
+    <div><dt>蹲伏</dt><dd><kbd>C</kbd> 或 <kbd>Ctrl</kbd></dd></div>
+    <div><dt>近战</dt><dd><kbd>F</kbd></dd></div>
+    <div><dt>暂停</dt><dd><kbd>Esc</kbd> 或 <kbd>P</kbd></dd></div>
   </dl>`;
 
 var TOUCH_CONTROLS_HTML = `
   <dl class="keys">
-    <div><dt>Move</dt><dd>Left thumb, anywhere</dd></div>
-    <div><dt>Look</dt><dd>Drag the right side</dd></div>
-    <div><dt>Fire</dt><dd>Hold FIRE, drag to track</dd></div>
-    <div><dt>Aim</dt><dd>AIM toggles</dd></div>
-    <div><dt>Reload</dt><dd>RLD</dd></div>
-    <div><dt>Jump</dt><dd>JUMP</dd></div>
-    <div><dt>Cut relay</dt><dd>Hold USE at a relay</dd></div>
-    <div><dt>Sprint</dt><dd>Push the stick fully forward</dd></div>
+    <div><dt>移动</dt><dd>左手拇指在左侧任意位置滑动</dd></div>
+    <div><dt>视角</dt><dd>在屏幕右侧拖动</dd></div>
+    <div><dt>开火</dt><dd>按住「开火」，拖动跟踪目标</dd></div>
+    <div><dt>瞄准</dt><dd>点「瞄准」切换</dd></div>
+    <div><dt>换弹</dt><dd>「换弹」</dd></div>
+    <div><dt>跳跃</dt><dd>「跳跃」</dd></div>
+    <div><dt>切断中继</dt><dd>靠近中继并按住「交互」</dd></div>
+    <div><dt>冲刺</dt><dd>将摇杆推到最前方</dd></div>
   </dl>`;
 
 function createMenus(context, e) {
@@ -75,85 +83,85 @@ function createMenus(context, e) {
     <div class="m-veil"></div>
     <div class="m-bars"><i></i><i></i></div>
 
-    <section class="m-screen m-title" data-s="title" aria-label="Saltline">
+    <section class="m-screen m-title" data-s="title" aria-label="几猫">
       <div class="m-title-main">
-        <div class="m-eyebrow"><span class="m-tag">B4</span><span>Port Authority Breach Unit</span><span class="m-dim">Saltline Terminal \xB7 05:42</span></div>
-        <h1 class="m-word">SALTLINE</h1>
-        <p class="m-premise">The port\u2019s security net has gone feral. Cut its three uplinks. Reach the boat.</p>
+        <div class="m-eyebrow"><span class="m-tag">B4</span><span>港务局破袭队</span><span class="m-dim">几猫港区 \xB7 05:42</span></div>
+        <h1 class="m-word">几猫</h1>
+        <p class="m-premise">港区的安全网络已经失控。切断它的三处上行链路，然后登上撤离艇。</p>
         <div class="m-actions">
-          <button class="btn primary" data-act="deploy">Deploy</button>
-          <button class="btn" data-act="settings">Settings</button>
-          <button class="btn m-only-narrow" data-act="controls">Controls</button>
+          <button class="btn primary" data-act="deploy">部署</button>
+          <button class="btn" data-act="settings">设置</button>
+          <button class="btn m-only-narrow" data-act="controls">操作</button>
         </div>
-        <p class="m-note">Every surface, machine and sound is generated in your browser. Nothing is downloaded.</p>
+        <p class="m-note">每一寸表面、每一台机器、每一个声音都在你的浏览器里实时生成，不下载任何素材。</p>
       </div>
-      <aside class="m-legend" aria-label="Controls at a glance">
-        <div><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> Move</span><span><kbd>Mouse</kbd> Look</span><span><kbd>LMB</kbd> Fire</span><span><kbd>RMB</kbd> Aim</span><span><kbd>R</kbd> Reload</span></div>
-        <div><span><kbd>E</kbd> Cut relay</span><span><kbd>Space</kbd> Jump</span><span><kbd>Shift</kbd> Sprint</span><span><kbd>C</kbd> Crouch</span><span><kbd>Esc</kbd> Pause</span></div>
-        <div class="lg-touch"><em>Touch</em><span>Left thumb moves</span><span>Right thumb looks</span><span>Fire \xB7 Aim \xB7 Reload \xB7 Jump on screen</span></div>
+      <aside class="m-legend" aria-label="操作速览">
+        <div><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 移动</span><span><kbd>鼠标</kbd> 视角</span><span><kbd>左键</kbd> 开火</span><span><kbd>右键</kbd> 瞄准</span><span><kbd>R</kbd> 换弹</span></div>
+        <div><span><kbd>E</kbd> 切断中继</span><span><kbd>Space</kbd> 跳跃</span><span><kbd>Shift</kbd> 冲刺</span><span><kbd>C</kbd> 蹲伏</span><span><kbd>Esc</kbd> 暂停</span></div>
+        <div class="lg-touch"><em>触屏</em><span>左手拇指移动</span><span>右手拇指转向</span><span>开火 \xB7 瞄准 \xB7 换弹 \xB7 跳跃 屏幕按键</span></div>
       </aside>
     </section>
 
-    <section class="m-screen m-card" data-s="paused" aria-label="Paused">
-      <div class="m-k">Operation on hold</div>
-      <h2 class="m-h">Paused</h2>
+    <section class="m-screen m-card" data-s="paused" aria-label="已暂停">
+      <div class="m-k">行动暂停</div>
+      <h2 class="m-h">已暂停</h2>
       <p class="m-line" data-f="lookmode"></p>
       <div class="m-actions col">
-        <button class="btn primary" data-act="resume">Resume</button>
-        <button class="btn" data-act="settings">Settings</button>
-        <button class="btn" data-act="controls">Controls</button>
-        <button class="btn" data-act="restart">Restart mission</button>
+        <button class="btn primary" data-act="resume">继续</button>
+        <button class="btn" data-act="settings">设置</button>
+        <button class="btn" data-act="controls">操作</button>
+        <button class="btn" data-act="restart">重新开始任务</button>
       </div>
     </section>
 
-    <section class="m-screen m-card m-dead" data-s="dead" aria-label="Signal lost">
-      <div class="m-k">Breacher down</div>
-      <h2 class="m-h">Signal lost</h2>
-      <dl class="m-stats"><div><dt>Time survived</dt><dd data-f="dead-time">00:00</dd></div><div><dt>Relays cut</dt><dd data-f="dead-relays">0/3</dd></div></dl>
-      <div class="m-actions col"><button class="btn primary" data-act="retry">Retry</button></div>
+    <section class="m-screen m-card m-dead" data-s="dead" aria-label="信号中断">
+      <div class="m-k">队员倒下</div>
+      <h2 class="m-h">信号中断</h2>
+      <dl class="m-stats"><div><dt>存活时间</dt><dd data-f="dead-time">00:00</dd></div><div><dt>已切断中继</dt><dd data-f="dead-relays">0/3</dd></div></dl>
+      <div class="m-actions col"><button class="btn primary" data-act="retry">重试</button></div>
     </section>
 
-    <section class="m-screen m-card m-debrief" data-s="complete" aria-label="Debrief">
-      <div class="m-k">Berth 4 \xB7 Debrief</div>
-      <h2 class="m-h">Saltline is dark</h2>
-      <div class="m-rating"><span>Rating</span><b data-f="rating">Clean</b></div>
+    <section class="m-screen m-card m-debrief" data-s="complete" aria-label="行动简报">
+      <div class="m-k">四号泊位 \xB7 行动简报</div>
+      <h2 class="m-h">港区已陷入黑暗</h2>
+      <div class="m-rating"><span>评级</span><b data-f="rating">干净</b></div>
       <dl class="m-stats">
-        <div><dt>Time</dt><dd data-f="time">00:00</dd></div>
-        <div><dt>Accuracy</dt><dd data-f="acc">0%</dd></div>
-        <div><dt>Machines destroyed</dt><dd data-f="kills">0</dd></div>
-        <div><dt>Retries</dt><dd data-f="retries">0</dd></div>
+        <div><dt>用时</dt><dd data-f="time">00:00</dd></div>
+        <div><dt>命中率</dt><dd data-f="acc">0%</dd></div>
+        <div><dt>摧毁机械</dt><dd data-f="kills">0</dd></div>
+        <div><dt>重试次数</dt><dd data-f="retries">0</dd></div>
       </dl>
-      <div class="m-actions col"><button class="btn primary" data-act="redeploy">Redeploy</button></div>
+      <div class="m-actions col"><button class="btn primary" data-act="redeploy">再次部署</button></div>
     </section>
 
-    <div class="panel" role="dialog" aria-modal="true" aria-label="Settings and controls" tabindex="-1" hidden>
+    <div class="panel" role="dialog" aria-modal="true" aria-label="设置与操作" tabindex="-1" hidden>
       <header class="panel-h">
         <div class="tabs" role="tablist">
-          <button class="tab" role="tab" data-tab="settings" aria-selected="true">Settings</button>
-          <button class="tab" role="tab" data-tab="controls" aria-selected="false">Controls</button>
+          <button class="tab" role="tab" data-tab="settings" aria-selected="true">设置</button>
+          <button class="tab" role="tab" data-tab="controls" aria-selected="false">操作</button>
         </div>
-        <button class="btn small" data-act="close-panel">Close</button>
+        <button class="btn small" data-act="close-panel">关闭</button>
       </header>
       <div class="panel-b" data-pane="settings">
-        <div class="row"><label id="l-q">Graphics quality</label>
-          <div class="seg" role="group" aria-labelledby="l-q">${QUALITY_NAMES.map((U) => `<button data-q="${U}" aria-pressed="false">${U}</button>`).join("")}</div></div>
-        <div class="row"><label for="s-sens">Mouse sensitivity</label><div class="slider"><input id="s-sens" type="range" min="0.2" max="3" step="0.05"><output data-o="sens"></output></div></div>
-        <div class="row"><label id="l-inv">Invert Y</label><button class="toggle" data-act="invert" aria-labelledby="l-inv" aria-pressed="false"><i></i><span>Off</span></button></div>
-        <div class="row"><label for="s-vol">Master volume</label><div class="slider"><input id="s-vol" type="range" min="0" max="100" step="1"><output data-o="vol"></output></div></div>
-        <div class="row"><label for="s-fov">Field of view</label><div class="slider"><input id="s-fov" type="range" min="60" max="95" step="1"><output data-o="fov"></output></div></div>
-        <div class="row" data-row="fs"><label id="l-fs">Display</label><button class="btn small" data-act="fullscreen" aria-labelledby="l-fs fs-t"><span id="fs-t">Enter fullscreen</span></button></div>
+        <div class="row"><label id="l-q">画面质量</label>
+          <div class="seg" role="group" aria-labelledby="l-q">${QUALITY_NAMES.map((U) => `<button data-q="${U}" aria-pressed="false">${QUALITY_LABELS[U]}</button>`).join("")}</div></div>
+        <div class="row"><label for="s-sens">鼠标灵敏度</label><div class="slider"><input id="s-sens" type="range" min="0.2" max="3" step="0.05"><output data-o="sens"></output></div></div>
+        <div class="row"><label id="l-inv">垂直反转</label><button class="toggle" data-act="invert" aria-labelledby="l-inv" aria-pressed="false"><i></i><span>关</span></button></div>
+        <div class="row"><label for="s-vol">主音量</label><div class="slider"><input id="s-vol" type="range" min="0" max="100" step="1"><output data-o="vol"></output></div></div>
+        <div class="row"><label for="s-fov">视野范围</label><div class="slider"><input id="s-fov" type="range" min="60" max="95" step="1"><output data-o="fov"></output></div></div>
+        <div class="row" data-row="fs"><label id="l-fs">显示</label><button class="btn small" data-act="fullscreen" aria-labelledby="l-fs fs-t"><span id="fs-t">进入全屏</span></button></div>
         <p class="panel-note" data-f="qnote"></p>
       </div>
       <div class="panel-b" data-pane="controls" hidden>
-        <h3>Keyboard \xB7 Mouse</h3>${KEYBOARD_CONTROLS_HTML}
-        <p class="panel-note">If the browser will not capture the mouse, hold a mouse button and drag to look (left also fires, right also aims). Arrow keys or <kbd>I</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> turn, <kbd>Enter</kbd> fires.</p>
-        <h3>Touch</h3>${TOUCH_CONTROLS_HTML}
-        <h3>Gamepad</h3>
-        <p class="panel-note">Sticks move and look \xB7 RT fire \xB7 LT aim \xB7 A jump \xB7 B crouch \xB7 X reload \xB7 Y cut relay \xB7 L3 sprint \xB7 Start pause.</p>
+        <h3>键盘 \xB7 鼠标</h3>${KEYBOARD_CONTROLS_HTML}
+        <p class="panel-note">如果浏览器无法捕获鼠标，按住鼠标键拖动即可转动视角（左键同时开火，右键同时瞄准）。方向键或 <kbd>I</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> 转向，<kbd>Enter</kbd> 开火。</p>
+        <h3>触屏</h3>${TOUCH_CONTROLS_HTML}
+        <h3>手柄</h3>
+        <p class="panel-note">左右摇杆移动与视角 \xB7 RT 开火 \xB7 LT 瞄准 \xB7 A 跳跃 \xB7 B 蹲伏 \xB7 X 换弹 \xB7 Y 切断中继 \xB7 L3 冲刺 \xB7 Start 暂停。</p>
       </div>
     </div>
 
-    <div class="loc-card" aria-hidden="true"><i></i><b>Saltline Terminal \xB7 Berth 4 \xB7 05:42</b><span>Port Authority Breach Unit \u2014 one breacher, no backup</span></div>
+    <div class="loc-card" aria-hidden="true"><i></i><b>几猫港区 \xB7 四号泊位 \xB7 05:42</b><span>港务局破袭队 — 孤身一人，没有后援</span></div>
   `),
     t.appendChild(s));
   let o = (U) => s.querySelector(U),
@@ -221,11 +229,11 @@ function createMenus(context, e) {
       (o('[data-o="fov"]').textContent = Math.round(n.fov) + "\xB0"));
     let T = o('[data-act="invert"]');
     (T.setAttribute("aria-pressed", String(n.invertY)),
-      (T.querySelector("span").textContent = n.invertY ? "On" : "Off"),
+      (T.querySelector("span").textContent = n.invertY ? "开" : "关"),
       (c("qnote").textContent =
         n.quality === "auto"
-          ? `Quality was picked for this device (${U || "default"}). Lower it if the frame rate struggles.`
-          : "Quality changes apply at once; shadows and reflections may take a moment to rebuild."));
+          ? `已为这台设备自动选择画质（${QUALITY_LABELS[U] || QUALITY_LABELS.default}）。如果帧率吃紧可以调低。`
+          : "画质改动立即生效；阴影与反射重建需要一点时间。"));
   }
   (u.addEventListener("input", () => {
     ((n.sens = +u.value), v("sens"), g(), saveSettings(n));
@@ -247,7 +255,7 @@ function createMenus(context, e) {
     document.webkitFullscreenEnabled !== !1) ||
     (x.hidden = !0);
   function _() {
-    y.textContent = "Fullscreen is not available here";
+    y.textContent = "当前环境不支持全屏";
   }
   function M() {
     try {
@@ -264,7 +272,7 @@ function createMenus(context, e) {
     }
   }
   let E = () => {
-    y.textContent = b() ? "Exit fullscreen" : "Enter fullscreen";
+    y.textContent = b() ? "退出全屏" : "进入全屏";
   };
   (document.addEventListener("fullscreenchange", E),
     document.addEventListener("webkitfullscreenchange", E));

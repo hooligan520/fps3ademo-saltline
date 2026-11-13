@@ -532,21 +532,21 @@ function zA(i, e, t, n, s) {
         distress: 0.2,
       };
       (ae(
-        Mi(i, "MAX GROSS " + a.gross + " KG", k),
+        Mi(i, "最大总重 " + a.gross + " 千克", k),
         0.052,
         fe(P - 3) + 0.062,
         N / 2 - 0.01,
         0.44,
       ),
         ae(
-          Mi(i, "TARE " + a.tare + " KG   NET " + a.net + " KG", k),
+          Mi(i, "皮重 " + a.tare + " 千克   净重 " + a.net + " 千克", k),
           0.045,
           fe(P - 3),
           N / 2 - 0.01,
           0.44,
         ),
         ae(
-          Mi(i, "CU.CAP. " + a.cu + " CU.M", k),
+          Mi(i, "容积 " + a.cu + " 立方米", k),
           0.045,
           fe(P - 3) - 0.062,
           N / 2 - 0.01,
@@ -1499,7 +1499,7 @@ function buildGuardBooth(i, e = {}) {
       !0,
     ),
     t.decal(
-      Mi(i, "GATE CONTROL", {
+      Mi(i, "门禁控制", {
         color: "black",
         font: "stencil",
         distress: 0.2,
@@ -1824,11 +1824,11 @@ var Jg = [
 ];
 
 var E3 = [
-  "AUTHORISED PERSONNEL ONLY",
-  "NO PEDESTRIANS",
-  "HI-VIS AND HELMET",
-  "AUTOMATED VEHICLES",
-  "KEEP CLEAR",
+  "仅限授权人员",
+  "禁止行人通行",
+  "请穿反光服并佩戴安全帽",
+  "自动作业车辆",
+  "保持畅通",
 ];
 
 function buildSignPost(i, e = {}) {
@@ -2354,7 +2354,7 @@ function DA(i, e, t, n, s, o, r) {
           },
         );
     i.decal(
-      Mi(i.G, "LOT " + (1e3 + Math.floor(r() * 8999)), {
+      Mi(i.G, "批次 " + (1e3 + Math.floor(r() * 8999)), {
         color: "black",
         font: "sans",
         distress: 0.1,
@@ -2511,7 +2511,7 @@ function buildShelfRack(i, e = {}) {
       t.add(a, je(boxGeometry(0.005, 0.005, 2 * h + 0.04), g, v + 0.066, 0));
   }
   (t.decal(
-    Mi(i, "BAY " + String.fromCharCode(65 + (n % 6)) + "-" + (10 + (n % 40)), {
+    Mi(i, "货位 " + String.fromCharCode(65 + (n % 6)) + "-" + (10 + (n % 40)), {
       color: "black",
       font: "sans",
       distress: 0.1,
@@ -2524,7 +2524,7 @@ function buildShelfRack(i, e = {}) {
     0.34,
   ),
     t.decal(
-      Mi(i, "MAX 2000 KG / LEVEL", {
+      Mi(i, "每层限重 2000 千克", {
         color: "black",
         font: "sans",
         distress: 0.1,
@@ -2664,7 +2664,7 @@ function buildReeferUnit(i, e = {}) {
       });
   }
   t.decal(
-    Mi(i, "KELVAR  MARINE  REFRIGERATION", {
+    Mi(i, "几猫船用制冷", {
       color: "black",
       font: "sans",
       distress: 0.2,
@@ -3055,7 +3055,7 @@ function buildRelayNode(i, e = {}) {
   (o.push(_o(0, 0, M - 0.004)),
     T(o, 0.013, !0),
     o.decal(
-      Mi(i, "RELAY " + s, {
+      Mi(i, "中继 " + s, {
         color: "yellow",
         font: "stencil",
         distress: 0.15,
@@ -3068,7 +3068,7 @@ function buildRelayNode(i, e = {}) {
       O - 0.1,
     ),
     o.decal(
-      Mi(i, "HARBORMASTER UPLINK", {
+      Mi(i, "港区主控上行链路", {
         color: "white",
         font: "sans",
         distress: 0.15,
@@ -3108,7 +3108,7 @@ function buildRelayNode(i, e = {}) {
       r: 0.004,
     }),
     r.add(
-      Mi(i, "WIRING DIAGRAM  SLT-R4", {
+      Mi(i, "接线图 SLT-R4", {
         color: "white",
         font: "sans",
         distress: 0.1,
@@ -3120,7 +3120,7 @@ function buildRelayNode(i, e = {}) {
   for (let le of [U + 0.36, U - 0.4])
     r.add(c, je(cn(O - 0.14, 0.3), O / 2, le, -0.0125, [0, es, 0]), g);
   r.decal(
-    Mi(i, "ISOLATE BEFORE SERVICE", {
+    Mi(i, "检修前请断电", {
       color: "white",
       font: "sans",
       distress: 0.15,

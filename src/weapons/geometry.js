@@ -238,7 +238,7 @@ var fC = (i, e, t, n, s) => [
 ];
 
 var mi = {
-  name: "PAC-9 Longshore",
+  name: "几猫九式突击步枪",
   muzzle: [0, 0, -0.531],
   eject: [0.023, 0.004, -0.028],
   sightY: 0.069,

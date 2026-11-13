@@ -38,27 +38,27 @@ var GAME_FLOW = {
 };
 
 var jC = [
-  "NORTH",
-  "NORTH-EAST",
-  "EAST",
-  "SOUTH-EAST",
-  "SOUTH",
-  "SOUTH-WEST",
-  "WEST",
-  "NORTH-WEST",
+  "北方",
+  "东北方",
+  "东方",
+  "东南方",
+  "南方",
+  "西南方",
+  "西方",
+  "西北方",
 ];
 
 var _l = {
   intro:
-    "Breacher, this is Control. The Harbormaster holds the berth. Cut its three uplinks \u2014 yard, shed, quay.",
-  contact: "It has seen you. Gulls fly, Hounds walk. Put them down.",
+    "几猫队员，这里是指挥中心。港区主控已封锁泊位。切断堆场、仓库、码头的三处中继。",
+  contact: "你已被发现！空中有机械飞鸥，地面有机械猎犬。消灭它们。",
   cut: [
-    "One relay dark. It felt that \u2014 machines inbound.",
-    "Two dark. It is throwing everything it has left at you.",
+    "第一处中继已断开。敌方已察觉，机械守卫正在赶来。",
+    "第二处中继已断开。敌方正全力围攻，小心应对。",
   ],
-  all: "All three dark. The boat is holding at the quay ladder, south end. Run.",
-  low: "You are hit hard. Get behind steel and breathe.",
-  done: "Breacher is aboard. Saltline is dark. Good work.",
+  all: "三处中继全部断开！撤离艇在码头南端的舷梯旁，快撤！",
+  low: "伤势严重！找掩体躲避，稍作恢复。",
+  done: "几猫队员已登船，港区封锁解除。干得漂亮！",
 };
 
 function createGameFlow(context) {
@@ -301,7 +301,7 @@ function createGameFlow(context) {
       .map((V) => ({
         id: V.id,
         short: V.short,
-        label: V.o.label || "Relay " + V.short,
+        label: V.o.label || "中继 " + V.short,
         pos: V.o.pos,
         kind: "relay",
       }));
@@ -310,7 +310,7 @@ function createGameFlow(context) {
       P.push({
         id: "extract",
         short: "EX",
-        label: "Boat",
+        label: "撤离艇",
         pos: s.extraction.pos,
         kind: "extract",
       }),
@@ -349,13 +349,13 @@ function createGameFlow(context) {
       C(!0));
   }
   function D() {
-    if (c.allCut) return "Get to the boat";
+    if (c.allCut) return "前往撤离艇";
     let P = c.relays.length - c.cut;
     return c.cut === 0
-      ? "Cut the three uplink relays"
+      ? "切断三处上行中继"
       : P === 1
-        ? "Cut the last relay"
-        : `Cut the remaining ${P} relays`;
+        ? "切断最后一处中继"
+        : `切断剩余 ${P} 处中继`;
   }
   function C(P) {
     let V = r.describeMode ? r.describeMode() : "";
@@ -399,7 +399,7 @@ function createGameFlow(context) {
           ? r.describeMode()
           : r.touch
             ? ""
-            : "Resume recaptures the mouse.",
+            : "继续游戏后将重新捕获鼠标。",
       ),
       o.show(!1),
       l.show("paused"),
@@ -518,7 +518,7 @@ function createGameFlow(context) {
     }),
       (c.waveHot = 30));
     let J = ((Math.atan2(L, -Z) * 180) / Math.PI + 360) % 360;
-    o.warn && o.warn("Contact \u2014 " + jC[Math.round(J / 45) % 8], 3.4);
+    o.warn && o.warn("发现敌情 \xB7 " + jC[Math.round(J / 45) % 8], 3.4);
   }
   function X(P) {
     let V = ne();
@@ -596,7 +596,7 @@ function createGameFlow(context) {
       c.alertT = Math.max(c.alertT, 8);
     }),
     context.events.on("player:rescued", () => {
-      _.state === "playing" && o.message("Hauled out of the water", 2.5);
+      _.state === "playing" && o.message("已被拖出水面", 2.5);
     }));
   function $() {
     let P = null,
@@ -638,7 +638,7 @@ function createGameFlow(context) {
                 t: 0,
               }))));
     V && !V.cut
-      ? o.setPrompt && o.setPrompt("Cut relay " + V.short, saturate(V.t))
+      ? o.setPrompt && o.setPrompt("切断中继 " + V.short, saturate(V.t))
       : o.setPrompt && o.setPrompt(null);
     let Y = s.extraction;
     if (Y && Y.pos) {
@@ -651,7 +651,7 @@ function createGameFlow(context) {
           c.extractHint <= 0 &&
           ((c.extractHint = 8),
           o.message(
-            "Relays still live \u2014 the boat will not wait under fire",
+            "中继仍在运行 \u2014 撤离艇不会在火力下等你",
             3.5,
           )),
         (c.extractHint = Math.max(0, c.extractHint - P)));

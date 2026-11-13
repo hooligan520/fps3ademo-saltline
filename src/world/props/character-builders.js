@@ -546,7 +546,7 @@ function nR(i, e) {
       },
       {
         damp: 0.45,
-        label: "FRAGILE",
+        label: "易碎物品",
         arrow: !0,
         tint: o(),
       },
@@ -562,7 +562,7 @@ function nR(i, e) {
       },
       {
         damp: 0.5,
-        label: "KEEP DRY",
+        label: "保持干燥",
         tint: o(),
       },
     ),

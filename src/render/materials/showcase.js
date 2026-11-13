@@ -118,27 +118,27 @@ function showcaseMaterials(context) {
       (_ = -x / 2 + 0.25),
       (M = y - 0.75 - 3 * 0.78 - 0.05),
       w(
-        e.label("SALTLINE TERMINAL  B4-0271", {
+        e.label("几猫港区  B4-0271", {
           color: "white",
         }),
         0.3,
       ),
       w(
-        e.label("MAX GROSS 30480 KG", {
+        e.label("最大总重 30480 千克", {
           color: "yellow",
           distress: 0.6,
         }),
         0.22,
       ),
       w(
-        e.label("DANGER", {
+        e.label("危险", {
           color: "red",
           distress: 0.2,
         }),
         0.3,
       ),
       w(
-        e.label("KEEP CLEAR", {
+        e.label("保持畅通", {
           color: "black",
           font: "sans",
         }),

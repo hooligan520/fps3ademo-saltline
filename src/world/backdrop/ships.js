@@ -368,7 +368,7 @@ function vb(i, e) {
         ),
       );
   }
-  let A = i.mats.label("几猫北航", {
+  let A = i.mats.label("小鱼儿北航", {
     color: "white",
     font: "sans",
     distress: 0.3,
@@ -885,7 +885,7 @@ function vb(i, e) {
     radar: ne,
     colliders: re,
     tris: t.tris,
-    name: "几猫北航",
+    name: "小鱼儿北航",
   };
 }
 

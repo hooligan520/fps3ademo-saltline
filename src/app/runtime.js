@@ -193,7 +193,7 @@ async function startGame() {
       ),
       (context.player = createPlayer(context)),
       (context.combat = createCombat(context)),
-      await setBootProgress("正在检查几猫制式步枪", 0.74),
+      await setBootProgress("正在检查小鱼儿制式步枪", 0.74),
       await initializeSystem("weapon", "weapon", () => createWeapon(context)),
       await setBootProgress("正在启动港区主控", 0.82),
       await initializeSystem("enemies", "enemies", () =>

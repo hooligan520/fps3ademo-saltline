@@ -83,10 +83,10 @@ function createMenus(context, e) {
     <div class="m-veil"></div>
     <div class="m-bars"><i></i><i></i></div>
 
-    <section class="m-screen m-title" data-s="title" aria-label="几猫">
+    <section class="m-screen m-title" data-s="title" aria-label="小鱼儿">
       <div class="m-title-main">
-        <div class="m-eyebrow"><span class="m-tag">B4</span><span>港务局破袭队</span><span class="m-dim">几猫港区 \xB7 05:42</span></div>
-        <h1 class="m-word">几猫</h1>
+        <div class="m-eyebrow"><span class="m-tag">B4</span><span>港务局破袭队</span><span class="m-dim">小鱼儿港区 \xB7 05:42</span></div>
+        <h1 class="m-word">小鱼儿</h1>
         <p class="m-premise">港区的安全网络已经失控。切断它的三处上行链路，然后登上撤离艇。</p>
         <div class="m-actions">
           <button class="btn primary" data-act="deploy">部署</button>
@@ -161,7 +161,7 @@ function createMenus(context, e) {
       </div>
     </div>
 
-    <div class="loc-card" aria-hidden="true"><i></i><b>几猫港区 \xB7 四号泊位 \xB7 05:42</b><span>港务局破袭队 — 孤身一人，没有后援</span></div>
+    <div class="loc-card" aria-hidden="true"><i></i><b>小鱼儿港区 \xB7 四号泊位 \xB7 05:42</b><span>港务局破袭队 — 孤身一人，没有后援</span></div>
   `),
     t.appendChild(s));
   let o = (U) => s.querySelector(U),

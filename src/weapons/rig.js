@@ -867,8 +867,8 @@ function TC() {
     o =
       '"Big Shoulders Display", "Barlow Condensed", Impact, "PingFang SC", "Hiragino Sans GB", sans-serif',
     r = "rgba(196,198,194,0.92)";
-  (t("model", "几猫九式", `700 78px ${o}`, r),
-    t("maker", "几猫兵工厂  \xB7  港区装备", `600 30px ${n}`, r),
+  (t("model", "小鱼儿九式", `700 64px ${o}`, r),
+    t("maker", "小鱼儿兵工厂  \xB7  港区装备", `600 30px ${n}`, r),
     t("cal", "口径 5.8\xD740   SN PA-004217", `500 27px ${s}`, r),
     t(
       "prop",

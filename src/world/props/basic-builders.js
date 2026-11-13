@@ -2664,7 +2664,7 @@ function buildReeferUnit(i, e = {}) {
       });
   }
   t.decal(
-    Mi(i, "几猫船用制冷", {
+    Mi(i, "小鱼儿船用制冷", {
       color: "black",
       font: "sans",
       distress: 0.2,
